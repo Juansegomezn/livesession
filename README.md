@@ -42,7 +42,7 @@ The backend is the **only** place that holds `LIVEKIT_API_KEY` / `LIVEKIT_API_SE
 
 ## Environment Variables
 
-See `.env.example` at the repo root. In short:
+See `server/.env.example.` In short:
 
 | Var | Where | Secret? | Purpose |
 |---|---|---|---|
@@ -59,7 +59,7 @@ See `.env.example` at the repo root. In short:
 # 1. Backend
 cd server
 npm install
-cp ../.env.example .env    # then fill in LIVEKIT_API_KEY, LIVEKIT_API_SECRET, LIVEKIT_URL
+cp .env.example .env    # then fill in LIVEKIT_API_KEY, LIVEKIT_API_SECRET, LIVEKIT_URL
 npm run dev                # http://localhost:3001
 
 # 2. Frontend (new terminal)
