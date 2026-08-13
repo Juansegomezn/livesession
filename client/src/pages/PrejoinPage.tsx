@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { PreJoin } from "@livekit/components-react";
 import type { LocalUserChoices } from "@livekit/components-react";
