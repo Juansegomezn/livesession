@@ -1,17 +1,29 @@
 import express from "express";
 import cors from "cors";
-import "dotenv/config";
+import dotenv from "dotenv";
+import tokenRouter from "./routes/tokenRoutes.js";
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT ?? 3001;
+const port = process.env.PORT || 3001;
+const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 
-app.use(cors());
+app.use(
+  cors({
+    origin: clientOrigin,
+    methods: ["GET", "POST"],
+  })
+);
+
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
-app.listen(PORT, () => {
-  console.log(`[server] listening on http://localhost:${PORT}`);
+app.use("/api", tokenRouter);
+
+app.listen(port, () => {
+  console.log(`[server]: LiveSession Express Server running on http://localhost:${port}`);
 });
